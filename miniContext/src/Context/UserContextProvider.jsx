@@ -1,12 +1,26 @@
+// import React from "react";
+// import UserContext from "./UserContext";
+// function UserContextProvider() {
+//   const [User, setUser] = React.useState(null);
+//   return (
+//     <UserContext.Provider value={{ User, setUser }}>
+//       {children}
+//     </UserContext.Provider>
+//   );
+// }
+
+// export default UserContextProvider;
+
 import React from "react";
 import UserContext from "./UserContext";
-function UserContextProvider() {
-  const [User, setUser] = React.useState(null);
+
+const UserContextProvider = ({ children }) => {
+  const [user, setUser] = React.useState(null);
   return (
-    <UserContext.Provider value={{ User, setUser }}>
+    <UserContext.Provider value={{ user, setUser }}>
       {children}
     </UserContext.Provider>
   );
-}
+};
 
 export default UserContextProvider;
