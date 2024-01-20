@@ -38,6 +38,14 @@ export class AuthService  {
         } catch (error) {
             console.log("Appwrite service error :: getCurrentUser ::error", error)
         }
+        return null
+    }
+    async logout() {
+        try {
+            return await this.account.deleteSession("current");
+        } catch (error) {
+            console.log("Appwrite service error :: logout ::error", error)
+        }
     }
 
 
