@@ -6,10 +6,11 @@ function Button() {
     bgColor = "bg-blue-600",
     textColor = "text-white",
     className = "",
-    ...props 
+    ...props
+    
 
   return (
-    <button>
+    <button className={`${bgColor} ${textColor} ${className}`} {...props}>
         {Children}
     </button>
   )
