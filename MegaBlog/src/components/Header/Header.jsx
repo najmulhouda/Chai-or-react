@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Container } from "../index";
 function Header() {
   const authStatus = useSelector((state) => state.auth.status);
@@ -37,8 +37,21 @@ function Header() {
   return (
     <header>
       <Container>
-        <nav className="flex items-center justify-between h-16">
-          <div className="mr-4"></div>
+        <nav className="flex">
+          <div className="mr-4">
+            <Link to="/">
+              <Logo />
+            </Link>
+          </div>
+          <ul className="flex ml-auto">
+            {navItems.map((item) =>
+              item.active ? (
+                <li key={item.slug}>
+                  <Link to={item.slug}>{item.name}</Link>
+                </li>
+              ) : null
+            )}
+          </ul>
         </nav>
       </Container>
     </header>
