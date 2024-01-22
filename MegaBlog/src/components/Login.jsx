@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import authService from "../appwrite/auth";
 import { login as authLogin } from "../store/authSlice";
+import Logo from "./index";
 
 function Login() {
   const navigation = useNavigate();
@@ -35,6 +36,19 @@ function Login() {
             <Logo width="100%" />
           </span>
         </div>
+        <h2 className="ext-center text-2xl font-bold leading-tight ">
+          Sign in to your account
+        </h2>
+        <p className="mt-2 text-center text-base text-black/60">
+          Don&apos;t have an account?&nbsp;
+          <Link
+            to="/signup"
+            className="font-medium text-primary transition-all duration-200 hover:underline"
+          >
+            Sign up
+          </Link>
+        </p>
+        {error && <p className="text-red-500 text-center">{error}</p>}
       </div>
     </div>
   );
