@@ -1,3 +1,4 @@
+import { Input } from "postcss";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
@@ -49,6 +50,19 @@ function Login() {
           </Link>
         </p>
         {error && <p className="text-red-500 text-center">{error}</p>}
+        <form onSubmit={handleSubmit(login)} className="mt-8"
+        >
+            <div className="space-y-5">
+                <Input
+                label="Email"
+                placeholder="Enter your email"
+                type="email"
+                {...register("email"), { required: true }}
+
+                
+                />
+            </div>
+        </form>
       </div>
     </div>
   );
